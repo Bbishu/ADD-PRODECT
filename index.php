@@ -137,7 +137,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                       <li class="active">
                     
                         <a href="#" class="text-decoration-none text-black">HOME</a></li>
-                          <li><a href="#"class= "text-decoration-none text-black">ABOUT US</a></li>
+                          <li><a href="#"class= "text-decoration-none text-black">ABOUT USSS</a></li>
                             <li><a href="#"class= "text-decoration-none text-black"> COURSE</a></li>
                               <li><a href="#"class= "text-decoration-none text-black">BLOG</a></li>
 
