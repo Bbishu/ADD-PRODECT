@@ -33,4 +33,42 @@ if (!isset($_SESSION['user_id']) &&( $_SESSION['e_mail'] != true)){
         exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
 <button type="button" class="btn "> <a href="logout.php">LOGOUT </a></button>
+<section>
+  <div class="container my-5 ">
+    <header class="mb-4 fst-italic">
+      <h2>New products</h2>
+    </header>
+
+    <div class="row">
+        <?php
+      
+        $query="SELECT product.*, forms.name as user_name
+        FROM product
+        INNER JOIN forms ON product.user_id = forms.id";
+        $result = $conn->query($query);
+      
+        while ($row = $result->fetch_assoc()) {
+        ?>
+      <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
+        <div class="card w-100 my-2 shadow-2-strong">
+        <p class="card-text ms-1 fst-italic "> Vendor- <?php echo $row['user_name']; ?></p>
+        <img src="<?php echo $row['image']; ?>" class="card-img-top" alt="<?php echo $row['image']; ?>"  style="width:230px;height:250px;">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title fst-italic"><?php echo $row['name']; ?></h5>
+            <p class="card-text fst-italic"> Rs <?php echo $row['price']; ?></p>
+            <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
+              <a href="#" class="btn btn-primary shadow-0 me-1 fst-italic">Add to cart</a>
+              <a href="#" class="btn btn-warning shadow-0 me-1 ms-2 fst-italic">Buy Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <?php
+      }
+  
+      $conn->close();
+      ?>
+  </div>
+ </div>
+</section>
 <?php require_once 'footer.php';?>
